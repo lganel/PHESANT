@@ -15,7 +15,7 @@ addToCounts <- function(countName, num)
 # Saves the counters stored in count variables, to a file in results directory
 saveCounts <- function() 
 {
-    countFile <- paste(opt$resDir, "variable-flow-counts-",
+    countFile <- paste(opt$resDir, "/variable-flow-counts-",
                        opt$varTypeArg,".txt", sep="")
 
     # Sort on counter name

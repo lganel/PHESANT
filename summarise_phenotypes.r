@@ -169,6 +169,7 @@ get_hists_and_notes <- function(hist_filename, tsv_data, log_file, outcome_info,
 					# The seventh column is information about how the data is parsed using PHESANT:
 
 					matching_line <- trim(grep(paste('^', var, '_', sep=""), readLines(log_file), value=TRUE))
+					print(matching_line) ## DEBUG
 					notes[k,7] <- matching_line
 
 					# The eighth column is usually empty, unless there are PHESANT reassignments, in which
@@ -196,6 +197,10 @@ get_hists_and_notes <- function(hist_filename, tsv_data, log_file, outcome_info,
 				subvar <- strsplit(i, split="_")[[1]][2]
 				where <- which(outcome_info$FieldID == var)
 				print(where)
+				if(length(where)==0) { ## DEBUG
+				  print(var) ## DEBUG
+				  print(colnames(tsv_data)) ## DEBUG
+				} ## DEBUG
 				
 				# Add the notes:
 				# The sixth column is the 'notes' field in variable-info file:

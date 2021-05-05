@@ -11,7 +11,6 @@ testCategoricalMultiple <- function(varName, varType, thisdata, varlogfile)
     data_to_add_names <- c()
 
     cat("CAT-MULTIPLE || ", file=varlogfile, append=TRUE)
-
     pheno <- thisdata[,phenoStartIdx:ncol(thisdata), drop=FALSE]
     pheno <- reassignValue(pheno, varName, varlogfile)
 
@@ -116,6 +115,7 @@ restrictSample2 <- function(varName,pheno, varIndicator, variableVal, varlogfile
     } else if (varIndicator != "") {
         # Remove people who have no value for indicator variable
         print(varIndicator)
+
         indName <- grep(paste0("x", varIndicator,"_0_"), names(data), value=TRUE)
         print(indName)
         cat("Indicator name ", indName, " || ", sep="", file=varlogfile, append=TRUE)
